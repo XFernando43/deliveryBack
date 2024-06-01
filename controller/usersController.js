@@ -16,7 +16,7 @@ module.exports = {
     },
 
     async register(req,res,next){
-        // try{
+        try{
             const user = req.body;
             const data = await User.create(user);
             return res.status(201).json({
@@ -24,15 +24,14 @@ module.exports = {
                 message: 'user registered',
                 data:data
             });  
-
-        // }catch(error){
-        //     console.log(`Error ${error}`);
-        //     res.status(501).json({
-        //         success:false,
-        //         message: "Error al registrar usuario",
-        //         error: error,
-        //     });
-        // }
+        }catch(error){
+            console.log(`Error ${error}`);
+            res.status(501).json({
+                success:false,
+                message: "Error al registrar usuario",
+                error: error,
+            });
+        }
     }
 
 }

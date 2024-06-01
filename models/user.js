@@ -31,8 +31,8 @@ Users.create = (user) => {
     user.password,
     user.is_avaliable,
     user.session_token,
-    user.created_at,
-    user.updated_at,
+    new Date(),
+    new Date(),
   ]);
 };
 
